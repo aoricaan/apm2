@@ -27,6 +27,6 @@ class BasicProvider(CommandGroup):
         if not config_path.exists():
             load_dotenv(".env")
             app_name = os.getenv("app_name") or ""
-            config_path.write_text(BASE_CONFIGURATION.format(app_name))
+            config_path.write_text(BASE_CONFIGURATION.format(app_name=app_name))
         toml_config = toml.loads(config_path.read_text())
         self.configuration: Config = config_from_dict(toml_config["apm"])

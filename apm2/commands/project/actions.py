@@ -7,7 +7,7 @@ class InitialProject(BaseCommand):
     def __init__(self, payload):
         super().__init__(payload)
         self._prompt = self._payload["prompt"]
-        self._function = self.__default_project() if self._payload["type"] else self.__custom_project()
+        self._function = self.__default_project if self._payload["type"] else self.__custom_project
 
     def execute(self):
         self._function()
@@ -20,7 +20,8 @@ class InitialProject(BaseCommand):
         template = self._prompt("path to template: ")
         self.__generate_templates(template)
 
-    def __generate_templates(self, package):
+    @staticmethod
+    def __generate_templates(package):
         """
         Generates the templates for the project.
         """

@@ -1,4 +1,4 @@
-from utils.abstracts import BaseCommand
+from apm2.utils.abstracts import BaseCommand
 
 
 class CreateLambda(BaseCommand):

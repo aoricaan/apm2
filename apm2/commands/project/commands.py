@@ -1,8 +1,10 @@
 import typer
 
 from apm2.commands.project.actions import InitialProject
+from apm2.utils.providers import BasicProvider
 
 project_app = typer.Typer()
+provider = BasicProvider()
 
 
 @project_app.command('init')
@@ -14,5 +16,5 @@ def initialize_new_project(default: bool = typer.Option(False,
     Initialize a new empty project in the current path.
 
     """
-    InitialProject({"type": default, "prompt": typer.prompt})
+    provider.set_command(InitialProject({"type": default, "prompt": typer.prompt}))
     print('Project init successfully!')
