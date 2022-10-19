@@ -4,6 +4,11 @@ import typer
 from pydantic import BaseModel
 
 
+class TemplateLanguages(str, Enum):
+    YAML = 'yaml'
+    JSON = 'json'
+
+
 class Verbs(str, Enum):
     GET = 'get'
     PUT = 'put'
